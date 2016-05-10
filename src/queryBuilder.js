@@ -1,7 +1,5 @@
 var queryBuilder = function(table, queryParams) {
 
-    var queryParams = queryParams;
-
     var sql = '';
 
     var buildSelect = function() {
@@ -27,7 +25,6 @@ var queryBuilder = function(table, queryParams) {
 
     var buildFrom = function() {
         sql += " FROM " + table;
-
         return this;
     };
 
@@ -73,7 +70,7 @@ var queryBuilder = function(table, queryParams) {
         }
 
         sql = sql.slice(0, -1);
-        console.log("sql:" + sql);
+
         return this;
     };
 
