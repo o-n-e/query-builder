@@ -21,20 +21,19 @@ var queryBuilder = function(table, queryParams) {
         }
 
         sql = sql.slice(0, -1);
-        sql += ' ';
 
         return this;
     };
 
     var buildFrom = function() {
-        sql += "FROM " + table + " ";
+        sql += " FROM " + table;
 
         return this;
     };
 
     var buildWhere= function() {
         var conditions = queryParams.value[1];
-        sql += "WHERE ";
+        sql += " WHERE ";
 
         for(var i = 0; i < conditions.value.length; i++) {
 
@@ -56,7 +55,7 @@ var queryBuilder = function(table, queryParams) {
             sql += ") AND ";
         }
 
-        sql = sql.slice(0, -4);
+        sql = sql.slice(0, -5);
 
         return this;
     };
@@ -64,7 +63,7 @@ var queryBuilder = function(table, queryParams) {
     var buildGroupBy = function() {
         var cols = queryParams.value[0];
         var col = {};
-        sql += "GROUP BY ";
+        sql += " GROUP BY ";
 
         for(var i = 0; i < cols.value.length; i++) {
             col = cols.value[i];
@@ -74,15 +73,14 @@ var queryBuilder = function(table, queryParams) {
         }
 
         sql = sql.slice(0, -1);
-        sql += ' ';
-
+        console.log("sql:" + sql);
         return this;
     };
 
     var buildOrderBy = function() {
         var cols = queryParams.value[0];
         var col = {};
-        sql += "ORDER BY ";
+        sql += " ORDER BY ";
 
         for(var i = 0; i < cols.value.length; i++) {
             col = cols.value[i];
@@ -92,13 +90,12 @@ var queryBuilder = function(table, queryParams) {
         }
 
         sql = sql.slice(0, -1);
-        sql += ' ';
+        sql += ';'
 
         return this;
     };
 
     var print = function() {
-        sql = sql.slice(0, -1);
         return sql;
     }
 

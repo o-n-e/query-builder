@@ -93,7 +93,7 @@ describe('queryBuilder', function() {
             .buildGroupBy()
             .buildOrderBy()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1 ORDER BY I1,F1";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1 ORDER BY I1,F1;";
         expect(sql).toBe(expected);
     });
 
