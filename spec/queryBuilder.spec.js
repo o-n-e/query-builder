@@ -41,7 +41,7 @@ describe('queryBuilder', function() {
             }
         ]
     };
-    var table = "MAIN_TABLE"
+    var table = "MAIN_TABLE";
     var builder;
 
     beforeEach(function() {
