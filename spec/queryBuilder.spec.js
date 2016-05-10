@@ -55,7 +55,7 @@ describe('queryBuilder', function() {
     it('should build a select statement', function() {
         var sql = builder.buildSelect()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) ";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2)";
         expect(sql).toBe(expected);
     });
 
@@ -63,7 +63,7 @@ describe('queryBuilder', function() {
         var sql = builder.buildSelect()
             .buildFrom()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE ";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE";
         expect(sql).toBe(expected);
     });
 
@@ -72,7 +72,7 @@ describe('queryBuilder', function() {
             .buildFrom()
             .buildWhere()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) ";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20)";
         expect(sql).toBe(expected);
     });
 
@@ -82,7 +82,7 @@ describe('queryBuilder', function() {
             .buildWhere()
             .buildGroupBy()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1 ";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1";
         expect(sql).toBe(expected);
     });
 
@@ -93,7 +93,7 @@ describe('queryBuilder', function() {
             .buildGroupBy()
             .buildOrderBy()
             .print();
-        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1 ORDER BY I1,F1 ";
+        var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) FROM MAIN_TABLE WHERE start_date IN ('30-04-2015','31-04-2015') AND i_code IN (10,20) GROUP BY I1,F1 ORDER BY I1,F1";
         expect(sql).toBe(expected);
     });
 

@@ -98,6 +98,7 @@ var queryBuilder = function(table, queryParams) {
     };
 
     var print = function() {
+        sql = sql.slice(0, -1);
         return sql;
     }
 
