@@ -2,6 +2,7 @@ describe('queryBuilder', function() {
 
     var queryData = {};
     var table = "MAIN_TABLE"
+    var builder;
 
     beforeEach(function() {
         queryData = {
@@ -48,10 +49,10 @@ describe('queryBuilder', function() {
                 }
             ]
         };
+        builder = queryBuilder(table, queryData);
     });
 
     it('should build a select statement', function() {
-        var builder = queryBuilder(table, queryData);
         var sql = builder.buildSelect()
             .print();
         var expected = "SELECT I1,F1,SUM(D1),COUNT(D2) ";
@@ -59,7 +60,6 @@ describe('queryBuilder', function() {
     });
 
     it('should build a select from statement', function() {
-        var builder = queryBuilder(table, queryData);
         var sql = builder.buildSelect()
             .buildFrom()
             .print();
@@ -68,7 +68,6 @@ describe('queryBuilder', function() {
     });
 
     it('should build a select from where statement', function() {
-        var builder = queryBuilder(table, queryData);
         var sql = builder.buildSelect()
             .buildFrom()
             .buildWhere()
@@ -78,7 +77,6 @@ describe('queryBuilder', function() {
     });
 
     it('should build a select from where group by statement', function() {
-        var builder = queryBuilder(table, queryData);
         var sql = builder.buildSelect()
             .buildFrom()
             .buildWhere()
@@ -89,7 +87,6 @@ describe('queryBuilder', function() {
     });
 
     it('should build a select from where group by order by statement', function() {
-        var builder = queryBuilder(table, queryData);
         var sql = builder.buildSelect()
             .buildFrom()
             .buildWhere()
